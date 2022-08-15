@@ -1,0 +1,173 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "EXCHCLOUND Api Version 1.0",
+        "description": "EXCHCLOUND API Swagger",
+        "contact": {
+            "email": "byocao@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000/",
+            "description": "Development Environment"
+        },
+        {
+            "url": "http://127.0.0.1:9000/",
+            "description": "Staging  Environment"
+        }
+    ],
+    "paths": {
+        "/api/crypto": {
+            "get": {
+                "tags": [
+                    "Crypto"
+                ],
+                "summary": "getAssets",
+                "description": "Multiple status values can be provided with comma separated string",
+                "operationId": "index",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/crypto/limit={limit}": {
+            "get": {
+                "tags": [
+                    "Crypto"
+                ],
+                "summary": "getAssetsWithLimit",
+                "description": "Multiple status values can be provided with comma separated string",
+                "operationId": "limit",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/crypto/{id}/limit={limit}": {
+            "get": {
+                "tags": [
+                    "Crypto"
+                ],
+                "summary": "getSingleAsset",
+                "description": "Multiple status values can be provided with comma separated string",
+                "operationId": "assetMarket",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/crypto/{id}": {
+            "get": {
+                "tags": [
+                    "Crypto"
+                ],
+                "summary": "getSingleAsset",
+                "description": "Multiple status values can be provided with comma separated string",
+                "operationId": "show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/crypto/{id}/time={time}": {
+            "get": {
+                "tags": [
+                    "Crypto"
+                ],
+                "summary": "getAssetHistory",
+                "description": "Multiple status values can be provided with comma separated string",
+                "operationId": "assetHistory",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "time",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        }
+    }
+}
